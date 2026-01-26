@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - BTS SIO</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f4f4f4;
+        }
+
+        /* Header et Navigation */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 100;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        nav h1 {
+            font-size: 1.8rem;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        /* Sections générales */
+        section {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            color: #667eea;
+            border-bottom: 3px solid #764ba2;
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: #764ba2;
+        }
+
+        /* Section Hero */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem !important;
+        }
+
+        .hero h2 {
+            font-size: 3rem;
+            border: none;
+            color: white;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero .subtitle {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background-color: white;
+            color: #667eea;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 2px solid white;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: white;
+        }
+
+        /* À propos */
+        .about {
+            background-color: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .about-text p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid #667eea;
+        }
+
+        /* Compétences */
+        .skills {
+            background-color: white;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background-color: #f9f9f9;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .skill-category {
+            font-weight: bold;
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.3rem 0;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .skill-list li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #667eea;
+            font-weight: bold;
+        }
+
+        /* Projets */
+        .projects {
+            background-color: #f9f9f9;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 1.5rem;
+        }
+
+        .project-content h3 {
+            margin-top: 0;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 1rem;
+        }
+
+        .tag {
+            background-color: #e0e7ff;
+            color: #667eea;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+        }
+
+        /* Expérience et Formation */
+        .experience {
+            background-color: white;
+        }
+
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline-item {
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+            border-left: 3px solid #667eea;
+            position: relative;
+        }
+
+        .timeline-item:before {
+            content: "";
+            position: absolute;
+            left: -9px;
+            top: 0;
+            width: 15px;
+            height: 15px;
+            background-color: #667eea;
+            border-radius: 50%;
+        }
+
+        .timeline-date {
+            color: #667eea;
+            font-weight: bold;
+            font-size: 0.95rem;
+        }
+
+        .timeline-title {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #333;
+            margin: 0.3rem 0;
+        }
+
+        .timeline-subtitle {
+            color: #666;
+            font-style: italic;
+        }
+
+        .timeline-description {
+            color: #555;
+            margin-top: 0.5rem;
+        }
+
+        /* Contact */
+        .contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .contact h2 {
+            color: white;
+            border-bottom-color: white;
+        }
+
+        .contact-methods {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-method {
+            background-color: rgba(255,255,255,0.1);
+            padding: 1.5rem 2rem;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+
+        .contact-method:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-method a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .hero h2 {
+                font-size: 2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-methods {
+                flex-direction: column;
+            }
+        }
+
+        /* Placeholder styles */
+        .placeholder {
+            background-color: #fff3cd;
+            padding: 0.5rem;
+            border-radius: 3px;
+            color: #856404;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <h1>Mon Portfolio</h1>
+            <ul>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#experience">Formation</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h2>Bienvenue!</h2>
+        <p class="placeholder">[Votre Nom Complet]</p>
+        <p class="subtitle">Étudiant en BTS SIO - Spécialité SISR / SLAM</p>
+        <div class="cta-buttons">
+            <a href="#contact" class="btn">Me Contacter</a>
+            <a href="#projects" class="btn btn-secondary">Voir mes projets</a>
+        </div>
+    </section>
+
+    <!-- À propos -->
+    <section class="about" id="about">
+        <h2>À propos de moi</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Qui suis-je?</h3>
+                <p class="placeholder">[Présentez-vous brièvement, vos motivations, vos objectifs professionnels...]</p>
+                
+                <h3>Mon parcours</h3>
+                <p class="placeholder">[Décrivez votre parcours scolaire et professionnel avant le BTS...]</p>
+                
+                <h3>Mes objectifs</h3>
+                <p class="placeholder">[Expliquez vos ambitions professionnelles et ce que vous souhaitez accomplir...]</p>
+            </div>
+            <div class="about-image">
+                <img src="https://via.placeholder.com/200" alt="Votre photo">
+                <p class="placeholder">[Remplacer par votre photo]</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Compétences -->
+    <section class="skills" id="skills">
+        <h2>Mes Compétences</h2>
+        <div class="skills-grid">
+            <!-- Compétences Techniques -->
+            <div class="skill-card">
+                <div class="skill-category">Compétences Techniques</div>
+                <ul class="skill-list">
+                    <li class="placeholder">[Langage de programmation 1]</li>
+                    <li class="placeholder">[Langage de programmation 2]</li>
+                    <li class="placeholder">[Framework/Technologie 1]</li>
+                    <li class="placeholder">[Framework/Technologie 2]</li>
+                    <li class="placeholder">[Base de données]</li>
+                </ul>
+            </div>
+
+            <!-- Systèmes et Réseaux -->
+            <div class="skill-card">
+                <div class="skill-category">Systèmes & Réseaux</div>
+                <ul class="skill-list">
+                    <li class="placeholder">[Système d'exploitation 1]</li>
+                    <li class="placeholder">[Système d'exploitation 2]</li>
+                    <li class="placeholder">[Configuration réseau]</li>
+                    <li class="placeholder">[Sécurité informatique]</li>
+                    <li class="placeholder">[Administration serveur]</li>
+                </ul>
+            </div>
+
+            <!-- Compétences Transversales -->
+            <div class="skill-card">
+                <div class="skill-category">Compétences Transversales</div>
+                <ul class="skill-list">
+                    <li class="placeholder">[Travail en équipe]</li>
+                    <li class="placeholder">[Communication]</li>
+                    <li class="placeholder">[Gestion de projet]</li>
+                    <li class="placeholder">[Anglais technique]</li>
+                    <li class="placeholder">[Documentation]</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projets -->
+    <section class="projects" id="projects">
+        <h2>Mes Projets</h2>
+        <div class="projects-grid">
+            <!-- Projet 1 -->
+            <div class="project-card">
+                <div class="project-image">🖥️</div>
+                <div class="project-content">
+                    <h3 class="placeholder">[Titre du Projet 1]</h3>
+                    <p class="placeholder">[Description du projet - objectifs, technologies utilisées, résultats...]</p>
+                    <div class="project-tags">
+                        <span class="tag placeholder">[Technologie]</span>
+                        <span class="tag placeholder">[Technologie]</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 2 -->
+            <div class="project-card">
+                <div class="project-image">⚙️</div>
+                <div class="project-content">
+                    <h3 class="placeholder">[Titre du Projet 2]</h3>
+                    <p class="placeholder">[Description du projet - objectifs, technologies utilisées, résultats...]</p>
+                    <div class="project-tags">
+                        <span class="tag placeholder">[Technologie]</span>
+                        <span class="tag placeholder">[Technologie]</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projet 3 -->
+            <div class="project-card">
+                <div class="project-image">🔒</div>
+                <div class="project-content">
+                    <h3 class="placeholder">[Titre du Projet 3]</h3>
+                    <p class="placeholder">[Description du projet - objectifs, technologies utilisées, résultats...]</p>
+                    <div class="project-tags">
+                        <span class="tag placeholder">[Technologie]</span>
+                        <span class="tag placeholder">[Technologie]</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expérience et Formation -->
+    <section class="experience" id="experience">
+        <h2>Formation et Expérience</h2>
+        
+        <h3>Formation</h3>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date">2024 - 2026</div>
+                <div class="timeline-title">BTS Services Informatiques aux Organisations</div>
+                <div class="timeline-subtitle" class="placeholder">[Nom de l'établissement]</div>
+                <div class="timeline-description placeholder">[Spécialité: SISR/SLAM - Description des apprentissages...]</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date" class="placeholder">[Année] - [Année]</div>
+                <div class="timeline-title" class="placeholder">[Nom du diplôme]</div>
+                <div class="timeline-subtitle" class="placeholder">[Nom de l'établissement]</div>
+                <div class="timeline-description placeholder">[Description...]</div>
+            </div>
+        </div>
+
+        <h3>Expérience Professionnelle</h3>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-date" class="placeholder">[Période]</div>
+                <div class="timeline-title" class="placeholder">[Titre du poste]</div>
+                <div class="timeline-subtitle" class="placeholder">[Nom de l'entreprise]</div>
+                <div class="timeline-description placeholder">[Description des tâches et responsabilités...]</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date" class="placeholder">[Période]</div>
+                <div class="timeline-title" class="placeholder">[Titre du poste]</div>
+                <div class="timeline-subtitle" class="placeholder">[Nom de l'entreprise]</div>
+                <div class="timeline-description placeholder">[Description des tâches et responsabilités...]</div>
+            </div>
+
+            <div class="timeline-item">
+                <div class="timeline-date" class="placeholder">[Période]</div>
+                <div class="timeline-title" class="placeholder">[Titre du stage]</div>
+                <div class="timeline-subtitle" class="placeholder">[Nom de l'entreprise]</div>
+                <div class="timeline-description placeholder">[Description du stage, missions accomplies...]</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact" id="contact">
+        <h2>Me Contacter</h2>
+        <p class="placeholder">[Présentez votre disponibilité et vos coordonnées]</p>
+        <div class="contact-methods">
+            <div class="contact-method">
+                <strong>Email</strong>
+                <p class="placeholder"><a href="mailto:votre.email@example.com">[Votre Email]</a></p>
+            </div>
+            <div class="contact-method">
+                <strong>Téléphone</strong>
+                <p class="placeholder"><a href="tel:+33123456789">[Votre Numéro]</a></p>
+            </div>
+            <div class="contact-method">
+                <strong>LinkedIn</strong>
+                <p class="placeholder"><a href="https://linkedin.com/in/votre-profil" target="_blank">[Votre Profil]</a></p>
+            </div>
+            <div class="contact-method">
+                <strong>GitHub</strong>
+                <p class="placeholder"><a href="https://github.com/votre-pseudo" target="_blank">[Votre GitHub]</a></p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Mon Portfolio BTS SIO. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>
