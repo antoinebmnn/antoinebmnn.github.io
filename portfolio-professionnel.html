@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antoine BAUMANN - Portfolio Professionnel BTS SIO SISR</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #0891b2;
+            --accent: #8b5cf6;
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --gray: #64748b;
+            --light: #f1f5f9;
+            --white: #ffffff;
+            --success: #10b981;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background-color: var(--light);
+        }
+
+        /* Header */
+        header {
+            background: var(--white);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        nav {
+            max-width: 1280px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 2rem;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            font-family: 'Fira Code', monospace;
+            font-weight: 600;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 6rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            opacity: 0.95;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: 2px solid transparent;
+        }
+
+        .btn-primary {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--white);
+            border-color: var(--white);
+        }
+
+        .btn-secondary:hover {
+            background: var(--white);
+            color: var(--primary);
+        }
+
+        /* Section */
+        section {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 5rem 2rem;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .section-header p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* About */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-image img {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 5px solid var(--primary);
+            box-shadow: 0 10px 40px rgba(37, 99, 235, 0.2);
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .about-text p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background: var(--white);
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+        }
+
+        .stat-card .number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary);
+            display: block;
+        }
+
+        .stat-card .label {
+            color: var(--gray);
+            font-size: 0.9rem;
+            margin-top: 0.5rem;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .skill-category h3 {
+            font-size: 1.3rem;
+            color: var(--dark);
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-category .icon {
+            font-size: 1.5rem;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.5rem 0;
+            color: var(--gray);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-list li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: 700;
+        }
+
+        /* Projects */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            font-size: 1.4rem;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .project-content p {
+            color: var(--gray);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: #ede9fe;
+            color: var(--accent);
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        /* Reports Section */
+        .reports-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .report-card {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: all 0.3s;
+            cursor: pointer;
+            overflow: hidden;
+        }
+
+        .report-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .report-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 2rem;
+            color: white;
+            text-align: center;
+        }
+
+        .report-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .report-type {
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.9;
+        }
+
+        .report-body {
+            padding: 2rem;
+        }
+
+        .report-body h3 {
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .report-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            color: var(--gray);
+        }
+
+        .report-date {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .report-description {
+            color: var(--gray);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .report-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .report-status {
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .status-complete {
+            background: #d1fae5;
+            color: #065f46;
+        }
+
+        .status-progress {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .btn-view {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            transition: gap 0.3s;
+        }
+
+        .btn-view:hover {
+            gap: 0.6rem;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding: 2rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--primary), var(--secondary));
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+            width: calc(50% - 3rem);
+            position: relative;
+            transition: all 0.3s;
+        }
+
+        .timeline-item:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .timeline-item:nth-child(odd) {
+            margin-right: auto;
+        }
+
+        .timeline-item:nth-child(even) {
+            margin-left: auto;
+        }
+
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            top: 2rem;
+            width: 16px;
+            height: 16px;
+            background: var(--primary);
+            border: 3px solid var(--white);
+            border-radius: 50%;
+            box-shadow: 0 0 0 4px #dbeafe;
+        }
+
+        .timeline-item:nth-child(odd)::after {
+            right: -2.5rem;
+        }
+
+        .timeline-item:nth-child(even)::after {
+            left: -2.5rem;
+        }
+
+        .timeline-date {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-subtitle {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-description {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        /* Contact */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .contact-card {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: all 0.3s;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .contact-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .contact-card h3 {
+            font-size: 1.2rem;
+            color: var(--dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .contact-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .contact-card a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        footer p {
+            opacity: 0.8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 1rem;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline::before {
+                left: 0;
+            }
+
+            .timeline-item {
+                width: 100%;
+                margin-left: 2rem !important;
+            }
+
+            .timeline-item::after {
+                left: -2.5rem !important;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeIn 0.6s ease-out forwards;
+        }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in:nth-child(1) { animation-delay: 0.1s; }
+        .fade-in:nth-child(2) { animation-delay: 0.2s; }
+        .fade-in:nth-child(3) { animation-delay: 0.3s; }
+        .fade-in:nth-child(4) { animation-delay: 0.4s; }
+        .fade-in:nth-child(5) { animation-delay: 0.5s; }
+        .fade-in:nth-child(6) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">
+                <span>&lt;/&gt;</span> Antoine BAUMANN
+            </div>
+            <ul>
+                <li><a href="#about">À propos</a></li>
+                <li><a href="#skills">Compétences</a></li>
+                <li><a href="#projects">Projets</a></li>
+                <li><a href="#reports">Comptes Rendus</a></li>
+                <li><a href="#experience">Parcours</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Antoine BAUMANN</h1>
+            <p class="subtitle">Étudiant en BTS SIO SISR</p>
+            <p class="description">
+                Spécialisé en administration systèmes et réseaux, passionné par les infrastructures 
+                IT et la cybersécurité. Recherche une alternance pour septembre 2025.
+            </p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-primary">📧 Me contacter</a>
+                <a href="#reports" class="btn btn-secondary">📄 Voir mes comptes rendus</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-header">
+            <h2>À propos de moi</h2>
+            <p>Découvrez mon parcours, mes compétences et mes objectifs professionnels</p>
+        </div>
+        <div class="about-grid">
+            <div class="about-image">
+                <img src="https://via.placeholder.com/300/667eea/ffffff?text=AB" alt="Antoine BAUMANN">
+            </div>
+            <div class="about-text">
+                <h3>Passionné par l'infrastructure IT</h3>
+                <p>
+                    Je m'appelle Antoine BAUMANN, j'ai 20 ans et je suis étudiant en BTS SIO SISR au CFA Robert Schuman. 
+                    Passionné par les systèmes et réseaux, je développe mes compétences en administration infrastructure, 
+                    virtualisation et sécurité informatique.
+                </p>
+                <p>
+                    Titulaire d'un Bac Pro SN option RISC avec mention Européenne Anglais, j'ai enrichi mon parcours 
+                    par des expériences internationales au Portugal et en Finlande, ainsi que des stages en entreprise 
+                    (Telmo, Mission Locale).
+                </p>
+                <div class="stats">
+                    <div class="stat-card">
+                        <span class="number">2+</span>
+                        <span class="label">Ans d'expérience</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="number">10+</span>
+                        <span class="label">Projets réalisés</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="number">15+</span>
+                        <span class="label">Comptes rendus</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" style="background: white;">
+        <div class="section-header">
+            <h2>Mes Compétences</h2>
+            <p>Expertise technique en administration systèmes, réseaux et sécurité</p>
+        </div>
+        <div class="skills-grid">
+            <div class="skill-category fade-in">
+                <h3><span class="icon">🖥️</span> Administration Systèmes</h3>
+                <ul class="skill-list">
+                    <li>Windows Server (AD, GPO, DNS, DHCP)</li>
+                    <li>Linux (Debian, Ubuntu, CentOS)</li>
+                    <li>PowerShell & Bash scripting</li>
+                    <li>Virtualisation (VMware, Hyper-V)</li>
+                    <li>Active Directory</li>
+                </ul>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3><span class="icon">🌐</span> Réseaux & Infrastructure</h3>
+                <ul class="skill-list">
+                    <li>TCP/IP, Routage, VLANs</li>
+                    <li>Configuration switches & routeurs</li>
+                    <li>Pare-feu & sécurité réseau</li>
+                    <li>VPN (OpenVPN, IPsec)</li>
+                    <li>Monitoring réseau</li>
+                </ul>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3><span class="icon">🔒</span> Cybersécurité</h3>
+                <ul class="skill-list">
+                    <li>Hardening système</li>
+                    <li>Gestion des vulnérabilités</li>
+                    <li>Politiques de sécurité</li>
+                    <li>Sauvegarde & restauration</li>
+                    <li>Analyse de logs</li>
+                </ul>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3><span class="icon">⚙️</span> DevOps & Automatisation</h3>
+                <ul class="skill-list">
+                    <li>Docker & conteneurisation</li>
+                    <li>Ansible</li>
+                    <li>Git & CI/CD</li>
+                    <li>Python (automation)</li>
+                    <li>Infrastructure as Code</li>
+                </ul>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3><span class="icon">💾</span> Bases de Données</h3>
+                <ul class="skill-list">
+                    <li>MySQL / MariaDB</li>
+                    <li>PostgreSQL</li>
+                    <li>Administration BDD</li>
+                    <li>Optimisation requêtes</li>
+                    <li>Backup & réplication</li>
+                </ul>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3><span class="icon">🌟</span> Compétences Transversales</h3>
+                <ul class="skill-list">
+                    <li>Travail en équipe</li>
+                    <li>Communication technique</li>
+                    <li>Documentation</li>
+                    <li>Anglais professionnel (B2)</li>
+                    <li>Gestion de projet Agile</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <div class="section-header">
+            <h2>Mes Projets</h2>
+            <p>Découvrez mes réalisations techniques en infrastructure et cybersécurité</p>
+        </div>
+        <div class="projects-grid">
+            <div class="project-card fade-in">
+                <div class="project-image">🛡️</div>
+                <div class="project-content">
+                    <h3>Infrastructure Réseau Entreprise</h3>
+                    <p>
+                        Déploiement complet d'une infrastructure réseau sécurisée pour une PME : serveurs 
+                        Windows/Linux, Active Directory, segmentation VLANs, pare-feu et VPN site-to-site.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tag">Windows Server</span>
+                        <span class="tag">Active Directory</span>
+                        <span class="tag">VLANs</span>
+                        <span class="tag">pfSense</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-image">🔐</div>
+                <div class="project-content">
+                    <h3>Plateforme de Monitoring</h3>
+                    <p>
+                        Mise en place d'une solution de surveillance infrastructure complète avec alertes 
+                        automatiques, dashboards temps réel et analyse de performances.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tag">Grafana</span>
+                        <span class="tag">Prometheus</span>
+                        <span class="tag">ELK Stack</span>
+                        <span class="tag">Zabbix</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-image">⚙️</div>
+                <div class="project-content">
+                    <h3>Automatisation Déploiements</h3>
+                    <p>
+                        Développement de scripts et playbooks pour automatiser le provisioning de serveurs, 
+                        configuration réseau et déploiement d'applications.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tag">Ansible</span>
+                        <span class="tag">Python</span>
+                        <span class="tag">Bash</span>
+                        <span class="tag">Docker</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reports Section -->
+    <section id="reports" style="background: white;">
+        <div class="section-header">
+            <h2>Comptes Rendus d'Activités</h2>
+            <p>Documentation technique de mes projets et activités professionnelles</p>
+        </div>
+        <div class="reports-grid">
+            <div class="report-card fade-in">
+                <div class="report-header">
+                    <div class="report-icon">📊</div>
+                    <div class="report-type">Compte Rendu</div>
+                </div>
+                <div class="report-body">
+                    <h3>Mise en place Active Directory</h3>
+                    <div class="report-meta">
+                        <span class="report-date">📅 Janvier 2025</span>
+                        <span>📄 12 pages</span>
+                    </div>
+                    <p class="report-description">
+                        Installation et configuration d'un domaine Active Directory, création de GPO, 
+                        gestion des utilisateurs et groupes, déploiement de politiques de sécurité.
+                    </p>
+                    <div class="report-footer">
+                        <span class="report-status status-complete">✓ Terminé</span>
+                        <a href="#" class="btn-view">Consulter →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="report-card fade-in">
+                <div class="report-header">
+                    <div class="report-icon">🌐</div>
+                    <div class="report-type">Compte Rendu</div>
+                </div>
+                <div class="report-body">
+                    <h3>Configuration Réseau VLANs</h3>
+                    <div class="report-meta">
+                        <span class="report-date">📅 Décembre 2024</span>
+                        <span>📄 8 pages</span>
+                    </div>
+                    <p class="report-description">
+                        Segmentation réseau avec VLANs, configuration switches managés, routage inter-VLANs 
+                        et tests de connectivité.
+                    </p>
+                    <div class="report-footer">
+                        <span class="report-status status-complete">✓ Terminé</span>
+                        <a href="#" class="btn-view">Consulter →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="report-card fade-in">
+                <div class="report-header">
+                    <div class="report-icon">🔒</div>
+                    <div class="report-type">Compte Rendu</div>
+                </div>
+                <div class="report-body">
+                    <h3>Audit Sécurité Infrastructure</h3>
+                    <div class="report-meta">
+                        <span class="report-date">📅 Novembre 2024</span>
+                        <span>📄 15 pages</span>
+                    </div>
+                    <p class="report-description">
+                        Audit complet de sécurité d'une infrastructure : analyse vulnérabilités, 
+                        recommandations, plan d'action et mise en conformité.
+                    </p>
+                    <div class="report-footer">
+                        <span class="report-status status-complete">✓ Terminé</span>
+                        <a href="#" class="btn-view">Consulter →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="report-card fade-in">
+                <div class="report-header">
+                    <div class="report-icon">💾</div>
+                    <div class="report-type">Compte Rendu</div>
+                </div>
+                <div class="report-body">
+                    <h3>Virtualisation avec VMware</h3>
+                    <div class="report-meta">
+                        <span class="report-date">📅 Octobre 2024</span>
+                        <span>📄 10 pages</span>
+                    </div>
+                    <p class="report-description">
+                        Déploiement d'environnement virtualisé avec VMware ESXi, création de VMs, 
+                        snapshots, migration et haute disponibilité.
+                    </p>
+                    <div class="report-footer">
+                        <span class="report-status status-complete">✓ Terminé</span>
+                        <a href="#" class="btn-view">Consulter →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="report-card fade-in">
+                <div class="report-header">
+                    <div class="report-icon">🚀</div>
+                    <div class="report-type">Compte Rendu</div>
+                </div>
+                <div class="report-body">
+                    <h3>Automatisation avec Ansible</h3>
+                    <div class="report-meta">
+                        <span class="report-date">📅 Septembre 2024</span>
+                        <span>📄 9 pages</span>
+                    </div>
+                    <p class="report-description">
+                        Création de playbooks Ansible pour automatisation déploiements, configuration 
+                        serveurs et gestion de la configuration.
+                    </p>
+                    <div class="report-footer">
+                        <span class="report-status status-complete">✓ Terminé</span>
+                        <a href="#" class="btn-view">Consulter →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="report-card fade-in">
+                <div class="report-header">
+                    <div class="report-icon">📈</div>
+                    <div class="report-type">Compte Rendu</div>
+                </div>
+                <div class="report-body">
+                    <h3>Monitoring avec Grafana</h3>
+                    <div class="report-meta">
+                        <span class="report-date">📅 En cours</span>
+                        <span>📄 En rédaction</span>
+                    </div>
+                    <p class="report-description">
+                        Installation et configuration de Grafana avec Prometheus pour monitoring 
+                        infrastructure et création de dashboards personnalisés.
+                    </p>
+                    <div class="report-footer">
+                        <span class="report-status status-progress">⏳ En cours</span>
+                        <a href="#" class="btn-view">Consulter →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <div class="section-header">
+            <h2>Mon Parcours</h2>
+            <p>Formation académique et expériences professionnelles</p>
+        </div>
+        
+        <h3 style="text-align: center; color: var(--primary); margin-bottom: 2rem; font-size: 1.5rem;">
+            🎓 Formation
+        </h3>
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="timeline-date">2024 - 2026</span>
+                <div class="timeline-title">BTS Services Informatiques aux Organisations</div>
+                <div class="timeline-subtitle">CFA Robert Schuman • Spécialité SISR</div>
+                <div class="timeline-description">
+                    Formation en alternance spécialisée en Solutions d'Infrastructure, Systèmes et Réseaux. 
+                    Administration Windows Server et Linux, virtualisation, sécurité réseau, scripting, 
+                    et projets d'infrastructure complète.
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <span class="timeline-date">2021 - 2024</span>
+                <div class="timeline-title">Bac Pro Systèmes Numériques option RISC</div>
+                <div class="timeline-subtitle">Lycée Louis de Cormontaigne • Mention Européenne Anglais</div>
+                <div class="timeline-description">
+                    Formation en Réseaux Informatiques et Systèmes Communicants. Fondamentaux en réseau, 
+                    câblage structuré, configuration matérielle et initiation à l'administration système. 
+                    Expériences internationales au Portugal et en Finlande.
+                </div>
+            </div>
+        </div>
+
+        <h3 style="text-align: center; color: var(--primary); margin: 4rem 0 2rem; font-size: 1.5rem;">
+            💼 Expériences Professionnelles
+        </h3>
+        <div class="timeline">
+            <div class="timeline-item">
+                <span class="timeline-date">2024 - Présent</span>
+                <div class="timeline-title">Alternant Informatique</div>
+                <div class="timeline-subtitle">Mequisa</div>
+                <div class="timeline-description">
+                    Support technique niveau 1 et 2, administration infrastructure serveurs et réseau, 
+                    gestion du parc informatique (150+ postes), déploiement automatisé, monitoring système, 
+                    résolution d'incidents critiques et documentation technique.
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <span class="timeline-date">2023</span>
+                <div class="timeline-title">Technicien Réseau - Stage</div>
+                <div class="timeline-subtitle">Telmo</div>
+                <div class="timeline-description">
+                    Installation et configuration d'équipements réseau, câblage structuré, tests de 
+                    connectivité, configuration VLANs, déploiement infrastructure WiFi et support utilisateur.
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <span class="timeline-date">2022</span>
+                <div class="timeline-title">Support Technique - Stage</div>
+                <div class="timeline-subtitle">Mission Locale</div>
+                <div class="timeline-description">
+                    Assistance technique poste de travail, installation et configuration logiciels, 
+                    maintenance matériel, gestion tickets incidents et formation utilisateurs.
+                </div>
+            </div>
+
+            <div class="timeline-item">
+                <span class="timeline-date">2022 - 2023</span>
+                <div class="timeline-title">Mobilités Internationales</div>
+                <div class="timeline-subtitle">Portugal & Finlande • Programme Erasmus+</div>
+                <div class="timeline-description">
+                    Stages techniques à l'international développant compétences interculturelles, maîtrise 
+                    de l'anglais technique, autonomie professionnelle et découverte des pratiques IT européennes.
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background: white;">
+        <div class="section-header">
+            <h2>Me Contacter</h2>
+            <p>Disponible pour une alternance dès septembre 2025. N'hésitez pas à me contacter !</p>
+        </div>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="contact-icon">📧</div>
+                <h3>Email</h3>
+                <a href="mailto:antoine.baumann@exemple.fr">antoine.baumann@exemple.fr</a>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">📱</div>
+                <h3>Téléphone</h3>
+                <a href="tel:+33612345678">06 12 34 56 78</a>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">💼</div>
+                <h3>LinkedIn</h3>
+                <a href="https://linkedin.com/in/antoine-baumann" target="_blank">Antoine BAUMANN</a>
+            </div>
+
+            <div class="contact-card">
+                <div class="contact-icon">💻</div>
+                <h3>GitHub</h3>
+                <a href="https://github.com/antoine-baumann" target="_blank">@antoine-baumann</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Antoine BAUMANN - Portfolio BTS SIO SISR | Tous droits réservés</p>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
