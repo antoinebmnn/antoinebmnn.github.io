@@ -17,30 +17,74 @@
             --primary-dark: #1e40af;
             --secondary: #0891b2;
             --accent: #8b5cf6;
-            --dark: #0f172a;
-            --dark-light: #1e293b;
-            --gray: #64748b;
-            --light: #f1f5f9;
-            --white: #ffffff;
             --success: #10b981;
-            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            
+            /* Light mode */
+            --bg-primary: #f1f5f9;
+            --bg-secondary: #ffffff;
+            --text-primary: #0f172a;
+            --text-secondary: #64748b;
+            --border-color: #e2e8f0;
+            --shadow: rgba(0,0,0,0.05);
+            --shadow-hover: rgba(0,0,0,0.1);
+        }
+
+        [data-theme="dark"] {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            
+            /* Dark mode */
+            --bg-primary: #0f172a;
+            --bg-secondary: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #94a3b8;
+            --border-color: #334155;
+            --shadow: rgba(0,0,0,0.3);
+            --shadow-hover: rgba(0,0,0,0.5);
         }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
-            color: var(--dark);
-            background-color: var(--light);
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Theme Toggle */
+        .theme-toggle {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 12px var(--shadow-hover);
+            z-index: 1001;
+            transition: all 0.3s;
+            border: none;
+            font-size: 1.5rem;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 20px var(--shadow-hover);
         }
 
         /* Header */
         header {
-            background: var(--white);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            background: var(--bg-secondary);
+            box-shadow: 0 1px 3px var(--shadow);
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid #e2e8f0;
+            border-bottom: 1px solid var(--border-color);
+            transition: background-color 0.3s;
         }
 
         nav {
@@ -74,7 +118,7 @@
         }
 
         nav a {
-            color: var(--dark);
+            color: var(--text-primary);
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
@@ -154,7 +198,7 @@
         }
 
         .btn-primary {
-            background: var(--white);
+            background: var(--bg-secondary);
             color: var(--primary);
         }
 
@@ -165,12 +209,12 @@
 
         .btn-secondary {
             background: transparent;
-            color: var(--white);
-            border-color: var(--white);
+            color: white;
+            border-color: white;
         }
 
         .btn-secondary:hover {
-            background: var(--white);
+            background: white;
             color: var(--primary);
         }
 
@@ -189,13 +233,13 @@
         .section-header h2 {
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--dark);
+            color: var(--text-primary);
             margin-bottom: 1rem;
         }
 
         .section-header p {
             font-size: 1.2rem;
-            color: var(--gray);
+            color: var(--text-secondary);
             max-width: 700px;
             margin: 0 auto;
         }
@@ -223,12 +267,12 @@
 
         .about-text h3 {
             font-size: 1.8rem;
-            color: var(--dark);
+            color: var(--text-primary);
             margin-bottom: 1rem;
         }
 
         .about-text p {
-            color: var(--gray);
+            color: var(--text-secondary);
             margin-bottom: 1.5rem;
             line-height: 1.8;
         }
@@ -241,11 +285,12 @@
         }
 
         .stat-card {
-            background: var(--white);
+            background: var(--bg-secondary);
             padding: 1.5rem;
             border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px var(--shadow);
             text-align: center;
+            transition: background-color 0.3s;
         }
 
         .stat-card .number {
@@ -256,7 +301,7 @@
         }
 
         .stat-card .label {
-            color: var(--gray);
+            color: var(--text-secondary);
             font-size: 0.9rem;
             margin-top: 0.5rem;
         }
@@ -269,21 +314,21 @@
         }
 
         .skill-category {
-            background: var(--white);
+            background: var(--bg-secondary);
             padding: 2rem;
             border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px var(--shadow);
             transition: all 0.3s;
         }
 
         .skill-category:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px var(--shadow-hover);
         }
 
         .skill-category h3 {
             font-size: 1.3rem;
-            color: var(--dark);
+            color: var(--text-primary);
             margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
@@ -300,7 +345,7 @@
 
         .skill-list li {
             padding: 0.5rem 0;
-            color: var(--gray);
+            color: var(--text-secondary);
             display: flex;
             align-items: center;
             gap: 0.5rem;
@@ -320,16 +365,16 @@
         }
 
         .project-card {
-            background: var(--white);
+            background: var(--bg-secondary);
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px var(--shadow);
             transition: all 0.3s;
         }
 
         .project-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px var(--shadow-hover);
         }
 
         .project-image {
@@ -348,12 +393,12 @@
 
         .project-content h3 {
             font-size: 1.4rem;
-            color: var(--dark);
+            color: var(--text-primary);
             margin-bottom: 1rem;
         }
 
         .project-content p {
-            color: var(--gray);
+            color: var(--text-secondary);
             margin-bottom: 1.5rem;
             line-height: 1.7;
         }
@@ -365,7 +410,7 @@
         }
 
         .tag {
-            background: #ede9fe;
+            background: rgba(139, 92, 246, 0.1);
             color: var(--accent);
             padding: 0.4rem 1rem;
             border-radius: 20px;
@@ -381,9 +426,9 @@
         }
 
         .report-card {
-            background: var(--white);
+            background: var(--bg-secondary);
             border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px var(--shadow);
             transition: all 0.3s;
             cursor: pointer;
             overflow: hidden;
@@ -391,7 +436,7 @@
 
         .report-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px var(--shadow-hover);
         }
 
         .report-header {
@@ -420,7 +465,7 @@
 
         .report-body h3 {
             font-size: 1.2rem;
-            color: var(--dark);
+            color: var(--text-primary);
             margin-bottom: 0.5rem;
         }
 
@@ -430,7 +475,7 @@
             align-items: center;
             margin-bottom: 1rem;
             font-size: 0.9rem;
-            color: var(--gray);
+            color: var(--text-secondary);
         }
 
         .report-date {
@@ -440,7 +485,7 @@
         }
 
         .report-description {
-            color: var(--gray);
+            color: var(--text-secondary);
             line-height: 1.6;
             margin-bottom: 1rem;
         }
@@ -450,7 +495,7 @@
             justify-content: space-between;
             align-items: center;
             padding-top: 1rem;
-            border-top: 1px solid #e2e8f0;
+            border-top: 1px solid var(--border-color);
         }
 
         .report-status {
@@ -468,6 +513,16 @@
         .status-progress {
             background: #fef3c7;
             color: #92400e;
+        }
+
+        [data-theme="dark"] .status-complete {
+            background: rgba(16, 185, 129, 0.2);
+            color: #6ee7b7;
+        }
+
+        [data-theme="dark"] .status-progress {
+            background: rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
         }
 
         .btn-view {
@@ -502,10 +557,10 @@
         }
 
         .timeline-item {
-            background: var(--white);
+            background: var(--bg-secondary);
             padding: 2rem;
             border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px var(--shadow);
             margin-bottom: 2rem;
             width: calc(50% - 3rem);
             position: relative;
@@ -513,7 +568,7 @@
         }
 
         .timeline-item:hover {
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px var(--shadow-hover);
         }
 
         .timeline-item:nth-child(odd) {
@@ -531,9 +586,9 @@
             width: 16px;
             height: 16px;
             background: var(--primary);
-            border: 3px solid var(--white);
+            border: 3px solid var(--bg-secondary);
             border-radius: 50%;
-            box-shadow: 0 0 0 4px #dbeafe;
+            box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.2);
         }
 
         .timeline-item:nth-child(odd)::after {
@@ -558,7 +613,7 @@
         .timeline-title {
             font-size: 1.3rem;
             font-weight: 700;
-            color: var(--dark);
+            color: var(--text-primary);
             margin-bottom: 0.5rem;
         }
 
@@ -569,7 +624,7 @@
         }
 
         .timeline-description {
-            color: var(--gray);
+            color: var(--text-secondary);
             line-height: 1.7;
         }
 
@@ -581,17 +636,17 @@
         }
 
         .contact-card {
-            background: var(--white);
+            background: var(--bg-secondary);
             padding: 2rem;
             border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px var(--shadow);
             text-align: center;
             transition: all 0.3s;
         }
 
         .contact-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px var(--shadow-hover);
         }
 
         .contact-icon {
@@ -601,7 +656,7 @@
 
         .contact-card h3 {
             font-size: 1.2rem;
-            color: var(--dark);
+            color: var(--text-primary);
             margin-bottom: 0.5rem;
         }
 
@@ -619,11 +674,12 @@
 
         /* Footer */
         footer {
-            background: var(--dark);
-            color: white;
+            background: var(--bg-secondary);
+            color: var(--text-primary);
             text-align: center;
             padding: 2rem;
             margin-top: 4rem;
+            border-top: 1px solid var(--border-color);
         }
 
         footer p {
@@ -667,6 +723,13 @@
             .timeline-item::after {
                 left: -2.5rem !important;
             }
+
+            .theme-toggle {
+                bottom: 1rem;
+                right: 1rem;
+                width: 50px;
+                height: 50px;
+            }
         }
 
         /* Animations */
@@ -692,6 +755,11 @@
     </style>
 </head>
 <body>
+    <!-- Theme Toggle Button -->
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle dark mode">
+        <span id="theme-icon">🌙</span>
+    </button>
+
     <!-- Header -->
     <header>
         <nav>
@@ -733,7 +801,7 @@
         </div>
         <div class="about-grid">
             <div class="about-image">
-                <img src="https://media.licdn.com/dms/image/v2/D4D03AQHxPi0yCJK8gA/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1714498126895?e=1770854400&v=beta&t=ZiPEB4nwBlCyU3A-NR1WUd8wAEzL2Q9c9dVZuoEYYBA" alt="Antoine BAUMANN">
+                <img src="photo-antoine.jpg" alt="Antoine BAUMANN">
             </div>
             <div class="about-text">
                 <h3>Passionné par l'infrastructure IT</h3>
@@ -766,7 +834,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" style="background: white;">
+    <section id="skills" style="background: var(--bg-secondary);">
         <div class="section-header">
             <h2>Mes Compétences</h2>
             <p>Expertise technique en administration systèmes, réseaux et sécurité</p>
@@ -802,28 +870,6 @@
                     <li>Politiques de sécurité</li>
                     <li>Sauvegarde & restauration</li>
                     <li>Analyse de logs</li>
-                </ul>
-            </div>
-
-            <div class="skill-category fade-in">
-                <h3><span class="icon">⚙️</span> DevOps & Automatisation</h3>
-                <ul class="skill-list">
-                    <li>Docker & conteneurisation</li>
-                    <li>Ansible</li>
-                    <li>Git & CI/CD</li>
-                    <li>Python (automation)</li>
-                    <li>Infrastructure as Code</li>
-                </ul>
-            </div>
-
-            <div class="skill-category fade-in">
-                <h3><span class="icon">💾</span> Bases de Données</h3>
-                <ul class="skill-list">
-                    <li>MySQL / MariaDB</li>
-                    <li>PostgreSQL</li>
-                    <li>Administration BDD</li>
-                    <li>Optimisation requêtes</li>
-                    <li>Backup & réplication</li>
                 </ul>
             </div>
 
@@ -901,7 +947,7 @@
     </section>
 
     <!-- Reports Section -->
-    <section id="reports" style="background: white;">
+    <section id="reports" style="background: var(--bg-secondary);">
         <div class="section-header">
             <h2>Comptes Rendus d'Activités</h2>
             <p>Documentation technique de mes projets et activités professionnelles</p>
@@ -1123,28 +1169,28 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" style="background: white;">
+    <section id="contact" style="background: var(--bg-secondary);">
         <div class="section-header">
             <h2>Me Contacter</h2>
-            <p>Disponible pour une alternance dès septembre 2026. N'hésitez pas à me contacter !</p>
+            <p>Disponible pour une alternance dès septembre 2025. N'hésitez pas à me contacter !</p>
         </div>
         <div class="contact-grid">
             <div class="contact-card">
                 <div class="contact-icon">📧</div>
                 <h3>Email</h3>
-                <a href="mailto:baumann.antoine28@gmail.com"></a>
+                <a href="mailto:antoine.baumann@outlook.fr">antoine.baumann@outlook.fr</a>
             </div>
 
             <div class="contact-card">
                 <div class="contact-icon">💼</div>
                 <h3>LinkedIn</h3>
-                <a href="https://www.linkedin.com/in/antoine-baumann-832202306" target="_blank">Antoine BAUMANN</a>
+                <a href="https://linkedin.com/in/antoine-baumann" target="_blank">Antoine BAUMANN</a>
             </div>
 
             <div class="contact-card">
                 <div class="contact-icon">💻</div>
                 <h3>GitHub</h3>
-                <a href="https://github.com/antoinebmnn" target="_blank">@antoine-baumann</a>
+                <a href="https://github.com/antoine-baumann" target="_blank">@antoine-baumann</a>
             </div>
         </div>
     </section>
@@ -1155,6 +1201,34 @@
     </footer>
 
     <script>
+        // Theme Toggle
+        function toggleTheme() {
+            const html = document.documentElement;
+            const themeIcon = document.getElementById('theme-icon');
+            const currentTheme = html.getAttribute('data-theme');
+            
+            if (currentTheme === 'dark') {
+                html.removeAttribute('data-theme');
+                themeIcon.textContent = '🌙';
+                localStorage.setItem('theme', 'light');
+            } else {
+                html.setAttribute('data-theme', 'dark');
+                themeIcon.textContent = '☀️';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+
+        // Load saved theme
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedTheme = localStorage.getItem('theme');
+            const themeIcon = document.getElementById('theme-icon');
+            
+            if (savedTheme === 'dark') {
+                document.documentElement.setAttribute('data-theme', 'dark');
+                themeIcon.textContent = '☀️';
+            }
+        });
+
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1179,14 +1253,4 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
-</body>
-</html>
+            
