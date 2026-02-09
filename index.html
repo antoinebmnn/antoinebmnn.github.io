@@ -13,34 +13,155 @@
         }
 
         :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --secondary: #06b6d4;
+            --accent: #a78bfa;
+            --dark: #0f172a;
+            --dark-light: #1e293b;
+            --dark-lighter: #334155;
+            --gray: #94a3b8;
+            --light: #1e293b;
+            --white: #0f172a;
+            --card-bg: #1e293b;
+            --success: #10b981;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        [data-theme="light"] {
             --primary: #2563eb;
             --primary-dark: #1e40af;
             --secondary: #0891b2;
             --accent: #8b5cf6;
             --dark: #0f172a;
             --dark-light: #1e293b;
+            --dark-lighter: #334155;
             --gray: #64748b;
             --light: #f1f5f9;
             --white: #ffffff;
+            --card-bg: #ffffff;
             --success: #10b981;
-            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        [data-theme="light"] body {
+            color: var(--dark);
+        }
+
+        [data-theme="light"] .section-header h2,
+        [data-theme="light"] .about-text h3,
+        [data-theme="light"] .skill-category h3,
+        [data-theme="light"] .project-content h3,
+        [data-theme="light"] .report-body h3,
+        [data-theme="light"] .timeline-title,
+        [data-theme="light"] .contact-card h3 {
+            color: var(--dark);
+        }
+
+        [data-theme="light"] nav a {
+            color: var(--dark);
+        }
+
+        [data-theme="light"] header {
+            background: var(--white);
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        [data-theme="light"] .stat-card,
+        [data-theme="light"] .skill-category,
+        [data-theme="light"] .project-card,
+        [data-theme="light"] .report-card,
+        [data-theme="light"] .timeline-item,
+        [data-theme="light"] .contact-card {
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+        }
+
+        [data-theme="light"] .stat-card:hover,
+        [data-theme="light"] .skill-category:hover,
+        [data-theme="light"] .project-card:hover,
+        [data-theme="light"] .report-card:hover,
+        [data-theme="light"] .timeline-item:hover,
+        [data-theme="light"] .contact-card:hover {
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        [data-theme="light"] .tag {
+            background: #ede9fe;
+            border: 1px solid #e9d5ff;
+        }
+
+        [data-theme="light"] .status-complete {
+            background: #d1fae5;
+            color: #065f46;
+            border: 1px solid #a7f3d0;
+        }
+
+        [data-theme="light"] .status-progress {
+            background: #fef3c7;
+            color: #92400e;
+            border: 1px solid #fde68a;
+        }
+
+        [data-theme="light"] .timeline-item::after {
+            border: 3px solid var(--white);
+            box-shadow: 0 0 0 4px #dbeafe;
+        }
+
+        [data-theme="light"] footer {
+            background: var(--dark);
+            color: white;
+            border-top: 1px solid var(--dark-lighter);
+        }
+
+        [data-theme="light"] .report-footer {
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .theme-toggle {
+            background: var(--card-bg);
+            border: 2px solid var(--dark-lighter);
+            color: #f1f5f9;
+            font-size: 1.2rem;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .theme-toggle:hover {
+            transform: scale(1.1);
+            border-color: var(--primary);
+            box-shadow: 0 0 15px rgba(59, 130, 246, 0.3);
+        }
+
+        [data-theme="light"] .theme-toggle {
+            border: 2px solid #e2e8f0;
+            background: var(--white);
+        }
+
+        [data-theme="light"] .theme-toggle:hover {
+            box-shadow: 0 0 15px rgba(37, 99, 235, 0.2);
         }
 
         body {
             font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
             line-height: 1.6;
-            color: var(--dark);
-            background-color: var(--light);
+            color: #e2e8f0;
+            background-color: var(--dark);
         }
 
         /* Header */
         header {
-            background: var(--white);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            background: var(--dark-light);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.3);
             position: sticky;
             top: 0;
             z-index: 1000;
-            border-bottom: 1px solid #e2e8f0;
+            border-bottom: 1px solid var(--dark-lighter);
         }
 
         nav {
@@ -74,7 +195,7 @@
         }
 
         nav a {
-            color: var(--dark);
+            color: #e2e8f0;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
@@ -154,23 +275,23 @@
         }
 
         .btn-primary {
-            background: var(--white);
+            background: var(--card-bg);
             color: var(--primary);
         }
 
         .btn-primary:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
         }
 
         .btn-secondary {
             background: transparent;
             color: var(--white);
-            border-color: var(--white);
+            border-color: white;
         }
 
         .btn-secondary:hover {
-            background: var(--white);
+            background: white;
             color: var(--primary);
         }
 
@@ -189,7 +310,7 @@
         .section-header h2 {
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--dark);
+            color: #f1f5f9;
             margin-bottom: 1rem;
         }
 
@@ -218,12 +339,12 @@
             border-radius: 50%;
             object-fit: cover;
             border: 5px solid var(--primary);
-            box-shadow: 0 10px 40px rgba(37, 99, 235, 0.2);
+            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.3);
         }
 
         .about-text h3 {
             font-size: 1.8rem;
-            color: var(--dark);
+            color: #f1f5f9;
             margin-bottom: 1rem;
         }
 
@@ -241,11 +362,12 @@
         }
 
         .stat-card {
-            background: var(--white);
+            background: var(--card-bg);
             padding: 1.5rem;
             border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
             text-align: center;
+            border: 1px solid var(--dark-lighter);
         }
 
         .stat-card .number {
@@ -269,21 +391,23 @@
         }
 
         .skill-category {
-            background: var(--white);
+            background: var(--card-bg);
             padding: 2rem;
             border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
             transition: all 0.3s;
+            border: 1px solid var(--dark-lighter);
         }
 
         .skill-category:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border-color: var(--primary);
         }
 
         .skill-category h3 {
             font-size: 1.3rem;
-            color: var(--dark);
+            color: #f1f5f9;
             margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
@@ -320,16 +444,18 @@
         }
 
         .project-card {
-            background: var(--white);
+            background: var(--card-bg);
             border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
             transition: all 0.3s;
+            border: 1px solid var(--dark-lighter);
         }
 
         .project-card:hover {
             transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            border-color: var(--primary);
         }
 
         .project-image {
@@ -348,7 +474,7 @@
 
         .project-content h3 {
             font-size: 1.4rem;
-            color: var(--dark);
+            color: #f1f5f9;
             margin-bottom: 1rem;
         }
 
@@ -365,12 +491,13 @@
         }
 
         .tag {
-            background: #ede9fe;
+            background: rgba(167, 139, 250, 0.2);
             color: var(--accent);
             padding: 0.4rem 1rem;
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 500;
+            border: 1px solid rgba(167, 139, 250, 0.3);
         }
 
         /* Reports Section */
@@ -381,17 +508,19 @@
         }
 
         .report-card {
-            background: var(--white);
+            background: var(--card-bg);
             border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
             transition: all 0.3s;
             cursor: pointer;
             overflow: hidden;
+            border: 1px solid var(--dark-lighter);
         }
 
         .report-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border-color: var(--primary);
         }
 
         .report-header {
@@ -420,7 +549,7 @@
 
         .report-body h3 {
             font-size: 1.2rem;
-            color: var(--dark);
+            color: #f1f5f9;
             margin-bottom: 0.5rem;
         }
 
@@ -450,7 +579,7 @@
             justify-content: space-between;
             align-items: center;
             padding-top: 1rem;
-            border-top: 1px solid #e2e8f0;
+            border-top: 1px solid var(--dark-lighter);
         }
 
         .report-status {
@@ -461,13 +590,15 @@
         }
 
         .status-complete {
-            background: #d1fae5;
-            color: #065f46;
+            background: rgba(16, 185, 129, 0.2);
+            color: #10b981;
+            border: 1px solid rgba(16, 185, 129, 0.3);
         }
 
         .status-progress {
-            background: #fef3c7;
-            color: #92400e;
+            background: rgba(251, 191, 36, 0.2);
+            color: #fbbf24;
+            border: 1px solid rgba(251, 191, 36, 0.3);
         }
 
         .btn-view {
@@ -485,6 +616,21 @@
         }
 
         /* Timeline */
+        .timeline-section {
+            margin-bottom: 4rem;
+        }
+
+        .timeline-section-title {
+            text-align: center;
+            color: var(--primary);
+            margin-bottom: 3rem;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+
         .timeline {
             position: relative;
             padding: 2rem 0;
@@ -502,18 +648,20 @@
         }
 
         .timeline-item {
-            background: var(--white);
+            background: var(--card-bg);
             padding: 2rem;
             border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
             margin-bottom: 2rem;
             width: calc(50% - 3rem);
             position: relative;
             transition: all 0.3s;
+            border: 1px solid var(--dark-lighter);
         }
 
         .timeline-item:hover {
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border-color: var(--primary);
         }
 
         .timeline-item:nth-child(odd) {
@@ -531,9 +679,9 @@
             width: 16px;
             height: 16px;
             background: var(--primary);
-            border: 3px solid var(--white);
+            border: 3px solid var(--dark-light);
             border-radius: 50%;
-            box-shadow: 0 0 0 4px #dbeafe;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.2);
         }
 
         .timeline-item:nth-child(odd)::after {
@@ -558,7 +706,7 @@
         .timeline-title {
             font-size: 1.3rem;
             font-weight: 700;
-            color: var(--dark);
+            color: #f1f5f9;
             margin-bottom: 0.5rem;
         }
 
@@ -581,17 +729,19 @@
         }
 
         .contact-card {
-            background: var(--white);
+            background: var(--card-bg);
             padding: 2rem;
             border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
             text-align: center;
             transition: all 0.3s;
+            border: 1px solid var(--dark-lighter);
         }
 
         .contact-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border-color: var(--primary);
         }
 
         .contact-icon {
@@ -601,7 +751,7 @@
 
         .contact-card h3 {
             font-size: 1.2rem;
-            color: var(--dark);
+            color: #f1f5f9;
             margin-bottom: 0.5rem;
         }
 
@@ -613,17 +763,18 @@
         }
 
         .contact-card a:hover {
-            color: var(--primary-dark);
+            color: var(--secondary);
             text-decoration: underline;
         }
 
         /* Footer */
         footer {
-            background: var(--dark);
-            color: white;
+            background: var(--dark-light);
+            color: var(--gray);
             text-align: center;
             padding: 2rem;
             margin-top: 4rem;
+            border-top: 1px solid var(--dark-lighter);
         }
 
         footer p {
@@ -701,10 +852,11 @@
             <ul>
                 <li><a href="#about">À propos</a></li>
                 <li><a href="#skills">Compétences</a></li>
+                <li><a href="#experience">Parcours</a></li>
                 <li><a href="#projects">Projets</a></li>
                 <li><a href="#reports">Comptes Rendus</a></li>
-                <li><a href="#experience">Parcours</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><button id="themeToggle" class="theme-toggle" aria-label="Toggle theme">🌙</button></li>
             </ul>
         </nav>
     </header>
@@ -766,7 +918,7 @@
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" style="background: white;">
+    <section id="skills">
         <div class="section-header">
             <h2>Mes Compétences</h2>
             <p>Technicien en administration systèmes, réseaux et sécurité</p>
@@ -789,7 +941,7 @@
                     <li>TCP/IP, Routage, VLANs</li>
                     <li>Configuration switches & routeurs</li>
                     <li>Pare-feu & sécurité réseau</li>
-                    <li>VPN OpenVPN, </li>
+                    <li>VPN OpenVPN</li>
                     <li>Monitoring réseau</li>
                 </ul>
             </div>
@@ -833,6 +985,100 @@
                     <li>Anglais professionnel (B2)</li>
                     <li>Gestion de projet Agile</li>
                 </ul>
+            </div>
+
+            <div class="skill-category fade-in">
+                <h3><span class="icon">🚀</span> Projets Personnels</h3>
+                <ul class="skill-list">
+                    <li>Homelab avec serveurs auto-hébergés</li>
+                    <li>Automatisation domotique</li>
+                    <li>Serveur Minecraft personnalisé</li>
+                    <li>Veille technologique active</li>
+                    <li>Contributions open source</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section (DÉPLACÉE ICI) -->
+    <section id="experience">
+        <div class="section-header">
+            <h2>Mon Parcours</h2>
+            <p>Formation académique et expériences professionnelles</p>
+        </div>
+        
+        <!-- Formation -->
+        <div class="timeline-section">
+            <h3 class="timeline-section-title">🎓 Formation</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="timeline-date">2024 - 2026</span>
+                    <div class="timeline-title">BTS Services Informatiques aux Organisations</div>
+                    <div class="timeline-subtitle">CFA Robert Schuman • Spécialité SISR</div>
+                    <div class="timeline-description">
+                        Formation en alternance spécialisée en Solutions d'Infrastructure, Systèmes et Réseaux. 
+                        Administration Windows Server et Linux, virtualisation, sécurité réseau, scripting, 
+                        et projets d'infrastructure complète.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-date">2021 - 2024</span>
+                    <div class="timeline-title">Bac Pro Systèmes Numériques option RISC</div>
+                    <div class="timeline-subtitle">Lycée Louis de Cormontaigne • Mention Européenne Anglais</div>
+                    <div class="timeline-description">
+                        Formation en Réseaux Informatiques et Systèmes Communicants. Fondamentaux en réseau, 
+                        câblage structuré, configuration matérielle et initiation à l'administration système. 
+                        Expériences internationales au Portugal et en Finlande.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Expériences Professionnelles -->
+        <div class="timeline-section">
+            <h3 class="timeline-section-title">💼 Expériences Professionnelles</h3>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <span class="timeline-date">2024 - Présent</span>
+                    <div class="timeline-title">Alternant Informatique</div>
+                    <div class="timeline-subtitle">Mequisa</div>
+                    <div class="timeline-description">
+                        Support technique niveau 1 et 2, administration infrastructure serveurs et réseau, 
+                        gestion du parc informatique (150+ postes), déploiement automatisé, monitoring système, 
+                        résolution d'incidents critiques et documentation technique.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-date">2023</span>
+                    <div class="timeline-title">Technicien Réseau - Stage</div>
+                    <div class="timeline-subtitle">Telmo</div>
+                    <div class="timeline-description">
+                        Installation et configuration d'équipements réseau, câblage structuré, tests de 
+                        connectivité, configuration VLANs, déploiement infrastructure WiFi et support utilisateur.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-date">2022</span>
+                    <div class="timeline-title">Support Technique - Stage</div>
+                    <div class="timeline-subtitle">Mission Locale</div>
+                    <div class="timeline-description">
+                        Assistance technique poste de travail, installation et configuration logiciels, 
+                        maintenance matériel, gestion tickets incidents et formation utilisateurs.
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <span class="timeline-date">2022 - 2023</span>
+                    <div class="timeline-title">Mobilités Internationales</div>
+                    <div class="timeline-subtitle">Portugal & Finlande • Programme Erasmus+</div>
+                    <div class="timeline-description">
+                        Stages techniques à l'international développant compétences interculturelles, maîtrise 
+                        de l'anglais technique, autonomie professionnelle et découverte des pratiques IT européennes.
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -882,7 +1128,7 @@
                 <div class="project-content">
                     <h3>Automatisation Déploiements</h3>
                     <p>
-                        Développement de scripts et pour automatiser le provisioning de serveurs, 
+                        Développement de scripts pour automatiser le provisioning de serveurs, 
                         configuration réseau et déploiement d'applications.
                     </p>
                     <div class="tech-tags">
@@ -892,11 +1138,29 @@
                     </div>
                 </div>
             </div>
+
+            <div class="project-card fade-in">
+                <div class="project-image">🏠</div>
+                <div class="project-content">
+                    <h3>Projets Personnels</h3>
+                    <p>
+                        Homelab personnel avec serveurs auto-hébergés (Nextcloud, Plex, Pi-hole), 
+                        automatisation domotique avec Home Assistant et serveur Minecraft customisé 
+                        pour gaming entre amis.
+                    </p>
+                    <div class="tech-tags">
+                        <span class="tag">Homelab</span>
+                        <span class="tag">Docker</span>
+                        <span class="tag">Raspberry Pi</span>
+                        <span class="tag">Linux</span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Reports Section -->
-    <section id="reports" style="background: white;">
+    <section id="reports">
         <div class="section-header">
             <h2>Comptes Rendus d'Activités</h2>
             <p>Documentation technique de mes projets et activités professionnelles</p>
@@ -1036,89 +1300,8 @@
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience">
-        <div class="section-header">
-            <h2>Mon Parcours</h2>
-            <p>Formation académique et expériences professionnelles</p>
-        </div>
-        
-        <h3 style="text-align: center; color: var(--primary); margin-bottom: 2rem; font-size: 1.5rem;">
-            🎓 Formation
-        </h3>
-        <div class="timeline">
-            <div class="timeline-item">
-                <span class="timeline-date">2024 - 2026</span>
-                <div class="timeline-title">BTS Services Informatiques aux Organisations</div>
-                <div class="timeline-subtitle">CFA Robert Schuman • Spécialité SISR</div>
-                <div class="timeline-description">
-                    Formation en alternance spécialisée en Solutions d'Infrastructure, Systèmes et Réseaux. 
-                    Administration Windows Server et Linux, virtualisation, sécurité réseau, scripting, 
-                    et projets d'infrastructure complète.
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <span class="timeline-date">2021 - 2024</span>
-                <div class="timeline-title">Bac Pro Systèmes Numériques option RISC</div>
-                <div class="timeline-subtitle">Lycée Louis de Cormontaigne • Mention Européenne Anglais</div>
-                <div class="timeline-description">
-                    Formation en Réseaux Informatiques et Systèmes Communicants. Fondamentaux en réseau, 
-                    câblage structuré, configuration matérielle et initiation à l'administration système. 
-                    Expériences internationales au Portugal et en Finlande.
-                </div>
-            </div>
-        </div>
-
-        <h3 style="text-align: center; color: var(--primary); margin: 4rem 0 2rem; font-size: 1.5rem;">
-            💼 Expériences Professionnelles
-        </h3>
-        <div class="timeline">
-            <div class="timeline-item">
-                <span class="timeline-date">2024 - Présent</span>
-                <div class="timeline-title">Alternant Informatique</div>
-                <div class="timeline-subtitle">Mequisa</div>
-                <div class="timeline-description">
-                    Support technique niveau 1 et 2, administration infrastructure serveurs et réseau, 
-                    gestion du parc informatique (150+ postes), déploiement automatisé, monitoring système, 
-                    résolution d'incidents critiques et documentation technique.
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <span class="timeline-date">2023</span>
-                <div class="timeline-title">Technicien Réseau - Stage</div>
-                <div class="timeline-subtitle">Telmo</div>
-                <div class="timeline-description">
-                    Installation et configuration d'équipements réseau, câblage structuré, tests de 
-                    connectivité, configuration VLANs, déploiement infrastructure WiFi et support utilisateur.
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <span class="timeline-date">2022</span>
-                <div class="timeline-title">Support Technique - Stage</div>
-                <div class="timeline-subtitle">Mission Locale</div>
-                <div class="timeline-description">
-                    Assistance technique poste de travail, installation et configuration logiciels, 
-                    maintenance matériel, gestion tickets incidents et formation utilisateurs.
-                </div>
-            </div>
-
-            <div class="timeline-item">
-                <span class="timeline-date">2022 - 2023</span>
-                <div class="timeline-title">Mobilités Internationales</div>
-                <div class="timeline-subtitle">Portugal & Finlande • Programme Erasmus+</div>
-                <div class="timeline-description">
-                    Stages techniques à l'international développant compétences interculturelles, maîtrise 
-                    de l'anglais technique, autonomie professionnelle et découverte des pratiques IT européennes.
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact Section -->
-    <section id="contact" style="background: white;">
+    <section id="contact">
         <div class="section-header">
             <h2>Me Contacter</h2>
             <p>Disponible pour une alternance dès septembre 2026. N'hésitez pas à me contacter !</p>
@@ -1127,7 +1310,7 @@
             <div class="contact-card">
                 <div class="contact-icon">📧</div>
                 <h3>Email</h3>
-                <a href="mailto:baumann.antoine28@gmail.com"></a>
+                <a href="/cdn-cgi/l/email-protection#731112061e121d1d5d121d071c1a1d16414b33141e121a1f5d101c1e"><span class="__cf_email__" data-cfemail="f69497839b979898d8979882999f9893c4ceb6919b979f9ad895999b">[email&#160;protected]</span></a>
             </div>
 
             <div class="contact-card">
@@ -1139,7 +1322,7 @@
             <div class="contact-card">
                 <div class="contact-icon">💻</div>
                 <h3>GitHub</h3>
-                <a href="https://github.com/antoinebmnn" target="_blank">@antoine-baumann</a>
+                <a href="https://github.com/antoinebmnn" target="_blank">@antoinebmnn</a>
             </div>
         </div>
     </section>
@@ -1149,7 +1332,25 @@
         <p>&copy; 2026 Antoine BAUMANN - Portfolio BTS SIO SISR | Tous droits réservés</p>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Theme Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const htmlElement = document.documentElement;
+        
+        // Charger le thème sauvegardé ou utiliser le mode sombre par défaut
+        const savedTheme = localStorage.getItem('theme') || 'dark';
+        htmlElement.setAttribute('data-theme', savedTheme);
+        themeToggle.textContent = savedTheme === 'dark' ? '🌙' : '☀️';
+        
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = htmlElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            themeToggle.textContent = newTheme === 'dark' ? '🌙' : '☀️';
+        });
+
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1174,14 +1375,4 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.fade-in').forEach(el => {
-            observer.observe(el);
-        });
-    </script>
-</body>
-</html>
+           
