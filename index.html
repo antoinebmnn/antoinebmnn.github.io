@@ -1288,7 +1288,7 @@
             <div class="contact-card">
                 <div class="contact-icon">📧</div>
                 <h3>Email</h3>
-                <a href="/cdn-cgi/l/email-protection#731112061e121d1d5d121d071c1a1d16414b33141e121a1f5d101c1e"><span class="__cf_email__" data-cfemail="f69497839b979898d8979882999f9893c4ceb6919b979f9ad895999b">baumann.antoine28@gmail.com</span></a>
+                <a href="mailto:TON_EMAIL_ICI">TON_EMAIL_ICI</a>
             </div>
 
             <div class="contact-card">
@@ -1310,7 +1310,49 @@
         <p>&copy; 2026 Antoine BAUMANN - Portfolio BTS SIO SISR | Tous droits réservés</p>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <!-- Floating Icons -->
+    <div class="floating-icons">
+        <div class="float-icon" style="--delay:0s; --x:10vw; --dur:6s;">🖥️</div>
+        <div class="float-icon" style="--delay:1.5s; --x:25vw; --dur:8s;">🔒</div>
+        <div class="float-icon" style="--delay:0.8s; --x:75vw; --dur:7s;">🌐</div>
+        <div class="float-icon" style="--delay:2s; --x:88vw; --dur:9s;">⚙️</div>
+        <div class="float-icon" style="--delay:3s; --x:50vw; --dur:6.5s;">🚀</div>
+        <div class="float-icon" style="--delay:1s; --x:60vw; --dur:8.5s;">💾</div>
+        <div class="float-icon" style="--delay:4s; --x:35vw; --dur:7.5s;">📡</div>
+        <div class="float-icon" style="--delay:2.5s; --x:15vw; --dur:10s;">🛡️</div>
+    </div>
+
+    <style>
+        .floating-icons {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+            overflow: hidden;
+        }
+
+        .float-icon {
+            position: absolute;
+            bottom: -60px;
+            left: var(--x);
+            font-size: 1.6rem;
+            opacity: 0;
+            animation: floatUp var(--dur) ease-in infinite;
+            animation-delay: var(--delay);
+        }
+
+        @keyframes floatUp {
+            0%   { transform: translateY(0) rotate(0deg); opacity: 0; }
+            10%  { opacity: 0.18; }
+            80%  { opacity: 0.12; }
+            100% { transform: translateY(-105vh) rotate(360deg); opacity: 0; }
+        }
+    </style>
+
+    <script>
         // Smooth scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1331,8 +1373,4 @@
             rootMargin: '0px 0px -100px 0px'
         };
 
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-           
+    
