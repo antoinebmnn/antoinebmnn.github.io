@@ -192,7 +192,7 @@
         .section-header h2 {
             font-size: 2.5rem;
             font-weight: 700;
-            color:#2563eb; ;
+            color:#2563eb;
             margin-bottom: 1rem;
         }
 
@@ -226,7 +226,7 @@
 
         .about-text h3 {
             font-size: 1.8rem;
-            color: #f1f5f9;
+            color: var(--dark);
             margin-bottom: 1rem;
         }
 
@@ -888,7 +888,7 @@
                     <li>Windows Server (AD, GPO, DNS, DHCP)</li>
                     <li>Linux (Debian, Ubuntu, CentOS)</li>
                     <li>PowerShell & Bash scripting</li>
-                    <li>Virtualisation (Promox, Hyper-V)</li>
+                    <li>Virtualisation (Proxmox, Hyper-V)</li>
                     <li>Active Directory</li>
                 </ul>
             </div>
@@ -942,7 +942,6 @@
                     <li>Documentation</li>
                     <li>Anglais professionnel (B2)</li>
                     <li>Gestion de projet Agile</li>
-                </ul>
                 </ul>
             </div>
         </div>
@@ -1263,9 +1262,9 @@
             </div>
 
             <div class="veille-card fade-in">
-                <div class="veille-icon">🔒</div>
-                <h3>Cybersécurité</h3>
-                <p>Actualités et tendances en sécurité informatique</p>
+                <div class="veille-icon">🔐</div>
+                <h3>Fuites de Données</h3>
+                <p>Veille sur les incidents et fuites de données en France et en Europe</p>
                 <a href="https://bonjourlafuite.eu.org/" target="_blank" class="veille-link">BONJOUR LA FUITE →</a>
             </div>
 
@@ -1372,5 +1371,18 @@
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
         };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
 
     
